@@ -7,15 +7,11 @@
   padding: 10px;
 }
 
-.dialogsItems .active {
-  color: gold;
+.dialog a {
+  color: black;
+}
+
+.dialog a.active {
+  color: red;
   font-weight: bold;
-}
-
-.messages {
-
-}
-
-.message {
-
 }
