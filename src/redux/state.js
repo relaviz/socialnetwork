@@ -1,3 +1,6 @@
+let rerenderTree = () => {
+
+};
 
 let state = {
     
@@ -40,7 +43,7 @@ let state = {
 
 window.state = state;
 
-export let addPost = (postMessage) => {
+export const addPost = (postMessage) => {
       let newPost = {
         id: 5,
         message: postMessage,
@@ -51,9 +54,13 @@ export let addPost = (postMessage) => {
     rerenderTree(state)
 }
 
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
     rerenderTree(state)
+}
+
+export const subscribe = (observer) => {
+    rerenderTree = observer;
 }
 
 export default state;
