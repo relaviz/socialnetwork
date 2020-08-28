@@ -5,10 +5,15 @@ import s from './../Navbar.module.css';
 const Icons = (props) => {
 
   return (
-      <div className={s.icon} >
-        <img src={props.icon} alt='probe' /><h4>name</h4>
+    <div className={s.iconItem} >
+      <div>
+        <img src={props.icon} alt='probe' />
       </div>
-      
+      <div>
+        <h5>Vasylii Petrocitch</h5>
+      </div>
+    </div>
+
   )
 }
 

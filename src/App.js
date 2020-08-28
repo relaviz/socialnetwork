@@ -8,6 +8,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import News from './components/News/News';
 import Music from './components/Music/Music';
 import Settings from './components/Settings/Settings';
+import { addPost } from './redux/state';
 
 const App = (props) => {
 
@@ -17,7 +18,7 @@ const App = (props) => {
         <Header />
         <Navbar state={props.state.profileIcons} />
         <div className='app-wrapper-content'>
-          <Route path='/profile' render={() => <Profile state={props.state.profilePage} />} />
+          <Route path='/profile' render={() => <Profile state={props.state.profilePage} addPost={addPost} />} />
           <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage} />} />
           <Route path='/news' render={() => <News />} />
           <Route path='/music' render={() => <Music />} />

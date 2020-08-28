@@ -13,7 +13,7 @@ const Friends = (props) => {
                 <NavLink to='/friends' activeClassName={s.active}><h1>Friends</h1></NavLink>
             </div>
             <div className={s.icon}>
-                <NavLink to='/friends'>{iconElement}</NavLink>
+                {iconElement}
             </div>
         </div>
 

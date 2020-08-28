@@ -5,7 +5,7 @@ const ProfileInfo = () => {
   return (
   <div className={s.content}>
     <div>
-      <img src='https://i.imgur.com/RRUe0Mo.png' alt='' />
+      <img src='https://ak.picdn.net/shutterstock/videos/1021270852/thumb/1.jpg' alt='' />
     </div>
     <div>ava+discription</div>
   </div>
