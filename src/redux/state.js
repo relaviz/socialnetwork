@@ -2,6 +2,8 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_NEW_NEWS = 'UPDATE-NEW-NEWS';
+const SEND_NEWS = 'SEND-NEWS';
 
 let store = {
     _state: {
@@ -40,6 +42,12 @@ let store = {
                 { id: 4, icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQt8j1i9HnXi9L1vqX6y5Xi18r-NnDXnMfbg&usqp=CAU' }
             ],
 
+        },
+        newsPage: {
+            news: [
+                {id: 1, newsMessage: 'First new news'}
+            ],
+            newNewsBody: ''
         }
     },
     _callSubscriber() {
@@ -70,9 +78,17 @@ let store = {
             this._state.dialogsPage.newMessageBody = action.body;
             this._callSubscriber(this._state);
         } else if (action.type === 'SEND-MESSAGE') {
-            let body = this._state.dialogsPage.newMessageBody
+            let body = this._state.dialogsPage.newMessageBody;
             this._state.dialogsPage.newMessageBody = '';
             this._state.dialogsPage.messages.push({ id: 4, message: body });
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-NEWS') {
+            this._state.newsPage.newNewsBody = action.news;
+            this._callSubscriber(this._state);
+        } else if (action.type === 'SEND-NEWS') {
+            let news = this._state.newsPage.newNewsBody;
+            this._state.newsPage.newNewsBody = '';
+            this._state.newsPage.news.push({ id: 2, newsMessage: news });
             this._callSubscriber(this._state);
         }
     }
@@ -89,6 +105,12 @@ export const sendMessageCreator = () => ({
 });
 export const updateNewMessageBodyCreator = (body) => ({
     type: UPDATE_NEW_MESSAGE_BODY, body: body
+});
+export const sendNewsCreator = () => ({
+    type: SEND_NEWS
+});
+export const updateNewNewsBodyCreator = (news) => ({
+    type: UPDATE_NEW_NEWS, news: news
 });
 
 window.store = store;
