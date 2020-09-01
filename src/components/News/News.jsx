@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './News.module.css';
-import { sendNewsCreator, updateNewNewsBodyCreator } from '../../redux/state';
+import { sendNewsCreator, updateNewNewsBodyCreator } from '../../redux/news-reducer';
 import NewNews from './NewNews/NewNews';
 
 

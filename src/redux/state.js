@@ -1,9 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_NEWS = 'UPDATE-NEW-NEWS';
-const SEND_NEWS = 'SEND-NEWS';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import newsReducer from "./news-reducer";
 
 let store = {
     _state: {
@@ -62,56 +59,21 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            let newPost = {
-                id: 5,
-                message: this._state.profilePage.newPostText,
-                likesCount: 0
-            };
-            this._state.profilePage.posts.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-BODY') {
-            this._state.dialogsPage.newMessageBody = action.body;
-            this._callSubscriber(this._state);
-        } else if (action.type === 'SEND-MESSAGE') {
-            let body = this._state.dialogsPage.newMessageBody;
-            this._state.dialogsPage.newMessageBody = '';
-            this._state.dialogsPage.messages.push({ id: 4, message: body });
-            this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-NEWS') {
-            this._state.newsPage.newNewsBody = action.news;
-            this._callSubscriber(this._state);
-        } else if (action.type === 'SEND-NEWS') {
-            let news = this._state.newsPage.newNewsBody;
-            this._state.newsPage.newNewsBody = '';
-            this._state.newsPage.news.push({ id: 2, newsMessage: news });
-            this._callSubscriber(this._state);
-        }
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.newsPage = newsReducer(this._state.newsPage, action);
+
+        this._callSubscriber(this._state);
+
+        
+        
     }
 }
 
-export const addPostActionCreator = () => ({
-    type: ADD_POST
-});
-export const updateNewPostTextActionCreator = (text) => ({
-    type: UPDATE_NEW_POST_TEXT, newText: text
-});
-export const sendMessageCreator = () => ({
-    type: SEND_MESSAGE
-});
-export const updateNewMessageBodyCreator = (body) => ({
-    type: UPDATE_NEW_MESSAGE_BODY, body: body
-});
-export const sendNewsCreator = () => ({
-    type: SEND_NEWS
-});
-export const updateNewNewsBodyCreator = (news) => ({
-    type: UPDATE_NEW_NEWS, news: news
-});
+
+
+
 
 window.store = store;
 
