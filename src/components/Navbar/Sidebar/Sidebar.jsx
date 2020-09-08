@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Icons from './Icons';
 
 const Friends = (props) => {
-
+debugger;
     let iconElement = props.state.icon.map(icon => <Icons id={icon.id} icon={icon.icon} />);
 
     return (

@@ -1,7 +1,14 @@
 const UPDATE_NEW_NEWS = 'UPDATE-NEW-NEWS';
 const SEND_NEWS = 'SEND-NEWS';
 
-const newsReducer = (state, action) => {
+let initialState = {
+    news: [
+        {id: 1, newsMessage: 'First new news'}
+    ],
+    newNewsBody: ''
+};
+
+const newsReducer = (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_NEW_NEWS:
             state.newNewsBody = action.news;
