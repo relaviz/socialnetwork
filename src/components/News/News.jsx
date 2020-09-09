@@ -1,22 +1,25 @@
 import React from 'react';
 import s from './News.module.css';
-import { sendNewsCreator, updateNewNewsBodyCreator } from '../../redux/news-reducer';
 import NewNews from './NewNews/NewNews';
 
 
 const News = (props) => {
-  let newsElement = props.state.news.map(n => <NewNews news={n.newsMessage} id={n.id} />);
+  
+  let state = props.newsPage;
+
+  let newsElement = state.news.map(n => <NewNews news={n.newsMessage} id={n.id} />);
 
   let newNewsElement = React.createRef();
 
-  let newNewsBody = props.state.newNewsBody
+  let newNewsBody = state.newNewsBody
 
   let oneSendNewsClick = () => {
-    props.store.dispatch(sendNewsCreator ())
-  }
+    props.sendNews();
+  };
+
   let onNewNewsChange = (e) => {
     let news = e.target.value;
-    props.store.dispatch(updateNewNewsBodyCreator(news))
+    props.updateNewNewsBody(news)
   }
 
   return (

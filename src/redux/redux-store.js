@@ -5,7 +5,7 @@ import newsReducer from './news-reducer'
 
 let reducers = combineReducers({
     profilePage: profileReducer,
-    dialogPage: dialogsReducer,
+    dialogsPage: dialogsReducer,
     newsPage: newsReducer,
     
 });
