@@ -4,14 +4,12 @@ import NewNews from './NewNews/NewNews';
 
 
 const News = (props) => {
-  
-  let state = props.newsPage;
-
-  let newsElement = state.news.map(n => <NewNews news={n.newsMessage} id={n.id} />);
+  debugger
+  let newsElement = props.newsPage.news.map(n => <NewNews news={n.newsMessage} key={n.id} id={n.id} />);
 
   let newNewsElement = React.createRef();
 
-  let newNewsBody = state.newNewsBody
+  let newNewsBody = props.newsPage.newNewsBody
 
   let oneSendNewsClick = () => {
     props.sendNews();
@@ -25,13 +23,13 @@ const News = (props) => {
   return (
     <div>
       <div className={s.news}>
-         <div className={s.newNews}>
+        <div className={s.newNews}>
           <div>
-          {newsElement}
+            {newsElement}
           </div>
           <div>
             <textarea onChange={onNewNewsChange}
-            placeholder='Add new news' value={newNewsBody} ref={newNewsElement} ></textarea>
+              placeholder='Add new news' value={newNewsBody} ref={newNewsElement} ></textarea>
           </div>
           <div>
             <button onClick={oneSendNewsClick} >Add news</button>

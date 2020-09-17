@@ -3,6 +3,7 @@ import s from './../News.module.css';
 
 
 const NewNews = (props) => {
+  debugger
   return (
     <div className={s.news}>{props.news}</div>
   )

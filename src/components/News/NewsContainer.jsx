@@ -1,26 +1,43 @@
-import React from 'react';
 import { sendNewsCreator, updateNewNewsBodyCreator } from '../../redux/news-reducer';
 import News from './News';
-import StoreContext from '../../StoreContex';
+import { connect } from 'react-redux';
 
-const NewsContainer = () => {
+// const NewsContainer = () => {
 
-  return <StoreContext.Consumer> 
-    {(store) => {
-      let state = store.getState().newsPage;
+//   return <StoreContext.Consumer> 
+//     {(store) => {
+//       let state = store.getState().newsPage;
 
-      let oneSendNewsClick = () => {
-        store.dispatch(sendNewsCreator())
-      };
+//       let oneSendNewsClick = () => {
+//         store.dispatch(sendNewsCreator())
+//       };
 
-      let onNewNewsChange = (news) => {
-        store.dispatch(updateNewNewsBodyCreator(news))
-      };
-      return <News updateNewNewsBody={onNewNewsChange}
-        sendNews={oneSendNewsClick} newsPage={state} />
+//       let onNewNewsChange = (news) => {
+//         store.dispatch(updateNewNewsBodyCreator(news))
+//       };
+//       return <News updateNewNewsBody={onNewNewsChange}
+//         sendNews={oneSendNewsClick} newsPage={state} />
+//     }
+//   }
+//   </StoreContext.Consumer>
+// }
+
+let mapStateToProps = (state) => {
+  return {
+    newsPage: state.newsPage
+  }
+}
+let mapDispatchToProps = (dispatch) => {
+  return {
+    updateNewNewsBody: (news) => {
+      dispatch(updateNewNewsBodyCreator(news));
+    },
+    sendNews: () => {
+      dispatch(sendNewsCreator());
     }
   }
-  </StoreContext.Consumer>
 }
+
+const NewsContainer = connect (mapStateToProps, mapDispatchToProps) (News)
 
 export default NewsContainer;
