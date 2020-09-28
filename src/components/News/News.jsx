@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import s from './News.module.css';
 import NewNews from './NewNews/NewNews';
 
 
 const News = (props) => {
-  debugger
+  
+  const [count, setCount] = useState(0);
+
   let newsElement = props.newsPage.news.map(n => <NewNews news={n.newsMessage} key={n.id} id={n.id} />);
 
   let newNewsElement = React.createRef();
@@ -24,6 +26,12 @@ const News = (props) => {
     <div>
       <div className={s.news}>
         <div className={s.newNews}>
+        <div>
+      <p>Вы кликнули {count} раз</p>
+      <button onClick={() => setCount(count + 1)}>
+        Нажми на меня
+      </button>
+    </div>
           <div>
             {newsElement}
           </div>
