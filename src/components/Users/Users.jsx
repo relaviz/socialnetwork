@@ -12,7 +12,7 @@ let Users = (props) => {
         pages.push(i);
     }
     return (
-        <div>
+        <div className={s.fon}>
             <div>
                 {pages.map(p => {
                     return <span className={props.currentPage === p && s.selctedPage}
