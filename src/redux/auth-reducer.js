@@ -1,4 +1,4 @@
-import { usersApi } from "../components/api/api";
+import { authApi } from "../components/api/api";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -33,7 +33,7 @@ export const setUser = (userId, email, login) => ({
 });
 
 export const getAuthUserData = () => (dispatch) => {
-    usersApi.me()
+    authApi.me()
         .then(data => {
             if (data.resultCode === 0) {
 

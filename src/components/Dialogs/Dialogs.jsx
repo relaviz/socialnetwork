@@ -8,18 +8,18 @@ const Dialogs = (props) => {
 
   let state = props.dialogsPage;
 
-let dialogsElements = state.dialogs.map(d => <DialogsItem name={d.name} key={d.id} id={d.id} />);
-let messagesElement = state.messages.map(m => <Message message={m.message} key={m.id} />);
+  let dialogsElements = state.dialogs.map(d => <DialogsItem name={d.name} key={d.id} id={d.id} />);
+  let messagesElement = state.messages.map(m => <Message message={m.message} key={m.id} />);
 
-let newMessageBody = state.newMessageBody
+  let newMessageBody = state.newMessageBody
 
-let oneSendMessageClick = () => {
-  props.sendMessage();
-}
-let onNewMessageChange = (e) => {
-  let body = e.target.value;
-  props.updateNewMessageBody(body);
-}
+  let oneSendMessageClick = () => {
+    props.sendMessage();
+  }
+  let onNewMessageChange = (e) => {
+    let body = e.target.value;
+    props.updateNewMessageBody(body);
+  }
 
   return (
     <div>
@@ -31,7 +31,7 @@ let onNewMessageChange = (e) => {
           {messagesElement}
           <div>
             <textarea onChange={onNewMessageChange}
-            placeholder='Enter message' value={newMessageBody}  ></textarea>
+              placeholder='Enter message' value={newMessageBody}  ></textarea>
           </div>
           <div>
             <button onClick={oneSendMessageClick} >Add message</button>
