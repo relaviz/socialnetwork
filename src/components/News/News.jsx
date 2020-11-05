@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import s from './News.module.css';
 import NewNews from './NewNews/NewNews';
 
-
 const News = (props) => {
-  
-  const [count, setCount] = useState(0);
 
   let newsElement = props.newsPage.news.map(n => <NewNews news={n.newsMessage} key={n.id} id={n.id} />);
 
@@ -26,12 +23,6 @@ const News = (props) => {
     <div>
       <div className={s.news}>
         <div className={s.newNews}>
-        <div>
-      <p>Вы кликнули {count} раз</p>
-      <button onClick={() => setCount(count + 1)}>
-        Нажми на меня
-      </button>
-    </div>
           <div>
             {newsElement}
           </div>
@@ -43,7 +34,6 @@ const News = (props) => {
             <button onClick={oneSendNewsClick} >Add news</button>
           </div>
         </div>
-
       </div>
     </div>
   )

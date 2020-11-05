@@ -71,7 +71,7 @@ let store = {
     }
 }
 
-window.store = store;
+window.store = [];
 
 export default store;
 

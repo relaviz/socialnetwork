@@ -5,7 +5,7 @@ import Header from './Header';
 
 class HeaderContainer extends React.Component {
   render() {
-     return <Header {...this.props} />
+    return <Header {...this.props} />
   }
 }
 

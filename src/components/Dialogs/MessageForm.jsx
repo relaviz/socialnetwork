@@ -5,9 +5,9 @@ import { Textarea } from '../common/FormsControls/FormsControls'
 
 const maxLength100 = maxLengthCreator(100)
 
-const AddMessageForm = props => {
+const AddMessageForm = ({handleSubmit}) => {
 
-  return <form onSubmit={props.handleSubmit}>
+  return <form onSubmit={handleSubmit}>
     <div>
       <Field placeholder={"Enter message"} name={"newMessageText"} validate={[required, maxLength100]} component={Textarea}  />
     </div>

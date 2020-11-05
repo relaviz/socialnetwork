@@ -22,9 +22,9 @@ class App extends React.Component {
   render() {
 
     if (!this.props.initialized) {
-    return <Preloader />
-  }
-  
+      return <Preloader />
+    }
+
     return (
       <div className='app-wrapper'>
         <HeaderContainer />
@@ -45,9 +45,9 @@ class App extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-   initialized: state.app.initialized
+  initialized: state.app.initialized
 })
 
-export default compose (
+export default compose(
   withRouter,
-  connect(mapStateToProps, { initializeApp })) (App);
+  connect(mapStateToProps, { initializeApp }))(App);
