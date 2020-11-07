@@ -9,7 +9,7 @@ let Users = ({ currentPage, onPageChanged, totalUsersCount, pageSize, ...props }
     return (
         <div className={s.fon}>
             <Pagination currentPage={currentPage} onPageChanged={onPageChanged}
-                totalUsersCount={totalUsersCount} pageSize={pageSize} />
+                totalItemsCount={totalUsersCount} pageSize={pageSize} />
             {props.users.map(u => <User key={u.id} user={u}
                 followingInProgress={props.followingInProgress}
                 unfollow={props.unfollow}

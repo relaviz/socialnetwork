@@ -4,7 +4,7 @@ class ProfileStatus extends React.Component {
 
   state = {
     editMode: false,
-    status: this.props.statut
+    status: this.props.status
   }
 
   activateEditMode = () => {
@@ -32,7 +32,6 @@ class ProfileStatus extends React.Component {
         status: this.props.status
       })
     }
-    console.log('componentDidUpdate')
   }
 
   render() {
