@@ -12,8 +12,6 @@ const ProfileInfo = ({ profile, status, updateStatus }) => {
 
     <div>
       <div className={s.content}>
-        {/* закоментировал эту строку, потому что теперь хватает и того что загружает из сервера. Потом можно оставить картинку по умолчанию */}
-        {/* <img src='https://ak.picdn.net/shutterstock/videos/1021270852/thumb/1.jpg' alt='' /> */}
       </div>
       <div className={s.avatar}>
         <img src='https://ak.picdn.net/shutterstock/videos/1021270852/thumb/1.jpg' alt=' ' />

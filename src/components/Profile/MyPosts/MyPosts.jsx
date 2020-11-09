@@ -8,8 +8,9 @@ import Post from './Post/Post';
 const maxLength10 = maxLengthCreator(10)
 
 const MyPosts = React.memo(props => {
-  console.log('RENDER');
-    console.log(props)
+  // Данные две строки выводит в консоль слово RENDER и  то что сидит в props`ах
+  // console.log('RENDER');
+  //   console.log(props)
 
   let postsElement = props.posts.map(p => <Post message={p.message} like={p.likesCount} />);
 
