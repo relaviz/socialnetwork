@@ -9,3 +9,8 @@
     height: 100px;
     width: 100px;
   }
+
+  .mainPhoto {
+    max-width: 200px;
+    max-height: 200px;
+  }
