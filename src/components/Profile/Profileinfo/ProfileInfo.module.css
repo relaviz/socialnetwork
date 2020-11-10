@@ -8,9 +8,21 @@
   .avatar img {
     height: 100px;
     width: 100px;
+    margin-top: 0%;
   }
 
   .mainPhoto {
     max-width: 200px;
     max-height: 200px;
+    text-align: left;
   }
+
+.contact {
+  padding-left: 10px;
+}
+
+.formSummaryError {
+  border: red 1px solid;
+  padding: 5px;
+  color: red;
+}
