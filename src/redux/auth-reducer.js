@@ -58,7 +58,6 @@ export const getCaptchaUrl = () => async (dispatch) => {
     const response = await securityApi.getCaptcha();
     const captchaUrl = response.data.url;
     dispatch(getCaptchaUrlSuccess(captchaUrl))
-
 }
 
 export const logout = () => async (dispatch) => {

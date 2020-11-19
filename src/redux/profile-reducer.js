@@ -90,9 +90,15 @@ export const getStatus = (userId) => async (dispatch) => {
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-    const response = await profileApi.updateStatus(status)
-    if (response.data.resultCode === 0) {
-        dispatch(setStatus(status));
+    const response = await profileApi.updateStatus(status);
+    try {
+        if (response.data.resultCode === 0) {
+            dispatch(setStatus(status));
+        } else {
+            alert(response.data.messages[0])
+        }
+    } catch(error) {
+        console.log("Error")
     }
 }
 export const savePhoto = (file) => async (dispatch) => {
@@ -108,7 +114,7 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
     if (response.data.resultCode === 0) {
         dispatch(getProfile(userId));
     } else {
-        dispatch(stopSubmit( "edit-pdofile",  { _error: response.data.messages[0] }));
+        dispatch(stopSubmit("edit-pdofile", { _error: response.data.messages[0] }));
         return Promise.reject(response.data.messages[0]);
     }
 }
