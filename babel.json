@@ -1,0 +1,24 @@
+{
+  "stories": [
+    {
+      "title": "New story",
+      "created": 1606211577970,
+      "submissionHistory": {},
+      "versions": [
+        "3bb1e78a-483a-4816-b13c-0551c383aea2"
+      ],
+      "id": "878d0acf-2197-4585-aba8-bf7c2fad4c48"
+    }
+  ],
+  "versions": [
+    {
+      "storyId": "878d0acf-2197-4585-aba8-bf7c2fad4c48",
+      "name": "draft",
+      "wordCount": 8,
+      "created": 1606211577981,
+      "statistics": {},
+      "id": "3bb1e78a-483a-4816-b13c-0551c383aea2"
+    }
+  ],
+  "backups": []
+}

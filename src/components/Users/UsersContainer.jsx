@@ -12,18 +12,13 @@ class UsersContainer extends React.Component {
 
         this.props.requestUsers(this.props.currentPage, this.props.pageSize);
     }
-
     onPageChanged = (pageNumber) => {
 
         this.props.setCurrentPage(pageNumber);
         this.props.requestUsers(pageNumber, this.props.pageSize);
     }
-
-
     render() {
-
         return (<>
-
             {this.props.isFetching ? <Preloader /> : null}
             <Users
                 totalUsersCount={this.props.totalUsersCount}
@@ -34,7 +29,6 @@ class UsersContainer extends React.Component {
                 unfollow={this.props.unfollow}
                 follow={this.props.follow}
                 followingInProgress={this.props.followingInProgress}
-
             />
         </>
         )
@@ -52,7 +46,6 @@ let mapStateToProps = (state) => {
         followingInProgress: getFollowingInProgress(state)
     }
 }
-
 
 export default compose(
     connect(mapStateToProps, {

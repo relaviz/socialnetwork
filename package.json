@@ -1,6 +1,6 @@
 {
   "name": "kabzda-1",
-  "homepage": " https://relaviz.github.io/socialnetwork/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -49,3 +49,4 @@
     "style-loader": "^1.2.1"
   }
 }
+

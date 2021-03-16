@@ -35,15 +35,15 @@ class App extends React.Component {
         <Navbar />
         <div className='app-wrapper-content'>
           <Switch>
-            <Route exact path='/' render={ () => <Redirect to={'/profile'} /> } />
-            <Route path='/profile/:userId?' render={withSuspense(ProfileContainer)} />
+            <Route exact path='/' render={() => <Redirect to={'/profile'} />} />
+            <Route path='/profile/:userId?' render={(ProfileContainer)} />
             <Route path='/dialogs' render={withSuspense(DialogsContainer)} />
             <Route path='/news' render={withSuspense(NewsContainer)} />
             <Route path='/music' render={withSuspense(Music)} />
             <Route path='/settings' render={withSuspense(Settings)} />
             <Route path='/users' render={withSuspense(UsersContainer)} />
             <Route path='/login' render={() => <Login />} />
-            <Route path='*' render={ () => <div>404 NOT FOUND</div>} />
+            <Route path='*' render={() => <div>404 NOT FOUND</div>} />
           </Switch>
         </div>
       </div>
@@ -60,7 +60,9 @@ let AppContainer = compose(
   connect(mapStateToProps, { initializeApp }))(App);
 
 const MainApp = (props) => {
-  return <BrowserRouter basename={process.env.PUBLIC_URL}>
+  // basename={process.env.PUBLIC_URL} часть библиотеки node.js и представляет собой автоматически генерируемый URL-адерсx
+  return <BrowserRouter > 
+  {/* basename={process.env.PUBLIC_URL} */}
     <Provider store={store}>
       <AppContainer />
     </Provider>
@@ -68,3 +70,5 @@ const MainApp = (props) => {
 }
 
 export default MainApp;
+
+// https://relaviz.github.io/socialnetwork/
